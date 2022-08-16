@@ -8,7 +8,7 @@
         "url": {
             "type": "string",
             "description": "url of image to display on component.",
-            "default": "/res/carlsbadcomponents/img/logo-city.png"
+            "default": "/res/carlsbadcomponents/img/logo-city.svg"
         },
         "color": {
             "type": "string",
