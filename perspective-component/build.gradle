@@ -25,7 +25,7 @@ plugins {
 }
 
 version "2.0.0"
-group "org.fakester"
+group "gov.carlsbadca"
 
 
 allprojects {
@@ -33,15 +33,15 @@ allprojects {
 
     ignitionModule {
         // name of the .modl file to build
-        fileName "RadComponents"
+        fileName "CarlsbadComponents"
 
         // what is the name of the "root" gradle project for this module.  In this case, it"s "this", aka, the project
         // specified as <repoPath>/perspective-component/build.gradle
         moduleRoot "perspective-component"
 
         // module xml configuration
-        moduleName "RadComponents"
-        moduleId "org.fakester.radcomponent"
+        moduleName "CarlsbadComponents"
+        moduleId "gov.carlsbadca.carlsbadcomponent"
         moduleVersion "${project.version}"
         moduleDescription "A module that adds components to the Perspective module."
         requiredIgnitionVersion "8.1.0"
@@ -61,8 +61,8 @@ allprojects {
         ]
 
         hooks = [
-                [scope: "G", hookClass: "org.fakester.gateway.RadGatewayHook"],
-                [scope: "D", hookClass: "org.fakester.designer.RadDesignerHook"]
+                [scope: "G", hookClass: "gov.carlsbadca.gateway.CarlsbadGatewayHook"],
+                [scope: "D", hookClass: "gov.carlsbadca.designer.CarlsbadDesignerHook"]
         ]
 
     }

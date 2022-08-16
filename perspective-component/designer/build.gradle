@@ -15,5 +15,3 @@ dependencies {
     compileOnly("com.inductiveautomation.ignitionsdk:perspective-designer:${sdk_version}")
     compileOnly("com.inductiveautomation.ignitionsdk:ignition-common:${sdk_version}")
 }
-
-

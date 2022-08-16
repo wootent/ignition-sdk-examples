@@ -8,7 +8,7 @@
         "url": {
             "type": "string",
             "description": "url of image to display on component.",
-            "default": "/res/radcomponents/img/bananatime.gif"
+            "default": "/res/carlsbadcomponents/img/logo-city.png"
         },
         "color": {
             "type": "string",

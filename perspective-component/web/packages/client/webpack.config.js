@@ -56,7 +56,7 @@ const config = {
 
     // define our entry point, from which we build our source tree for bundling
     entry: {
-        RadComponents:  path.join(__dirname, "./typescript/rad-client-components.ts")
+        CarlsbadComponents:  path.join(__dirname, "./typescript/carlsbad-client-components.ts")
     },
 
     output: {

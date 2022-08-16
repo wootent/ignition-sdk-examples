@@ -73,7 +73,7 @@ task deleteDistFolders(type: Delete) {
 
 // task to delete the output files from the gateway resources folder.
 task deleteGwJs(type: Delete) {
-    delete fileTree(mountedJsDir) { include("**/Rad*.js", "**/Rad*.js.map") }
+    delete fileTree(mountedJsDir) { include("**/Carlsbad*.js", "**/Carlsbad*.js.map") }
 }
 
 // makes the "built in" clean task execute the deletion tasks

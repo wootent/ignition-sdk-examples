@@ -4,7 +4,7 @@ const webpack = require('webpack'),
 
 const WebpackOnBuildPlugin = require('on-build-webpack');
 
-const LibName = "RadDesignComponents";
+const LibName = "CarlsbadComponents";
 
 // function that copies the result of the webpack from the dist/ folder into the gateway resources folder
 function copyToResources() {
@@ -40,7 +40,7 @@ var config = {
 
     // define our entry point, from which we build our source tree for bundling
     entry: {
-        RadDesignComponents:  path.join(__dirname, "./typescript/rad-designer-components.ts"),
+        CarlsbadComponents:  path.join(__dirname, "./typescript/carlsbad-components.ts"),
     },
 
     output: {

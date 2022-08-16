@@ -15,7 +15,7 @@ import {
 // The 'key' or 'id' for this component type.  Component must be registered with this EXACT key in the Java side as well
 // as on the client side.  In the client, this is done in the index file where we import and register through the
 // ComponentRegistry provided by the perspective-client API.
-export const COMPONENT_TYPE = "rad.display.image";
+export const COMPONENT_TYPE = "carlsbad.display.image";
 
 
 // This is the shape of the properties we get from the perspective 'props' property tree.

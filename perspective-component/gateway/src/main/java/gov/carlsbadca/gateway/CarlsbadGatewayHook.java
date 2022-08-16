@@ -1,4 +1,4 @@
-package org.fakester.gateway;
+package gov.carlsbadca.gateway;
 
 import java.util.Optional;
 
@@ -10,16 +10,12 @@ import com.inductiveautomation.ignition.gateway.model.GatewayContext;
 import com.inductiveautomation.perspective.common.api.ComponentRegistry;
 import com.inductiveautomation.perspective.gateway.api.ComponentModelDelegateRegistry;
 import com.inductiveautomation.perspective.gateway.api.PerspectiveContext;
-import org.fakester.common.RadComponents;
-import org.fakester.common.component.display.Image;
-import org.fakester.common.component.display.Messenger;
-import org.fakester.common.component.display.TagCounter;
-import org.fakester.gateway.delegate.MessageComponentModelDelegate;
-import org.fakester.gateway.endpoint.DataEndpoints;
+import gov.carlsbadca.common.CarlsbadComponents;
+import gov.carlsbadca.common.component.display.Image;
 
-public class RadGatewayHook extends AbstractGatewayModuleHook {
+public class CarlsbadGatewayHook extends AbstractGatewayModuleHook {
 
-    private static final LoggerEx log = LoggerEx.newBuilder().build("rad.gateway.RadGatewayHook");
+    private static final LoggerEx log = LoggerEx.newBuilder().build("carlsbad.gateway.CarlsbadGatewayHook");
 
     private GatewayContext gatewayContext;
     private PerspectiveContext perspectiveContext;
@@ -29,12 +25,12 @@ public class RadGatewayHook extends AbstractGatewayModuleHook {
     @Override
     public void setup(GatewayContext context) {
         this.gatewayContext = context;
-        log.info("Setting up RadComponents module.");
+        log.info("Setting up CarlsbadComponents module.");
     }
 
     @Override
     public void startup(LicenseState activationState) {
-        log.info("Starting up RadGatewayHook!");
+        log.info("Starting up CarlsbadGatewayHook!");
 
         this.perspectiveContext = PerspectiveContext.get(this.gatewayContext);
         this.componentRegistry = this.perspectiveContext.getComponentRegistry();
@@ -42,17 +38,16 @@ public class RadGatewayHook extends AbstractGatewayModuleHook {
 
 
         if (this.componentRegistry != null) {
-            log.info("Registering Rad components.");
+            log.info("Registering Carlsbad components.");
             this.componentRegistry.registerComponent(Image.DESCRIPTOR);
-            this.componentRegistry.registerComponent(TagCounter.DESCRIPTOR);
-            this.componentRegistry.registerComponent(Messenger.DESCRIPTOR);
+
         } else {
-            log.error("Reference to component registry not found, Rad Components will fail to function!");
+            log.error("Reference to component registry not found, Carlsbad Components will fail to function!");
         }
 
         if (this.modelDelegateRegistry != null) {
             log.info("Registering model delegates.");
-            this.modelDelegateRegistry.register(Messenger.COMPONENT_ID, MessageComponentModelDelegate::new);
+            
         } else {
             log.error("ModelDelegateRegistry was not found!");
         }
@@ -61,16 +56,15 @@ public class RadGatewayHook extends AbstractGatewayModuleHook {
 
     @Override
     public void shutdown() {
-        log.info("Shutting down RadComponent module and removing registered components.");
+        log.info("Shutting down CarlsbadComponent module and removing registered components.");
         if (this.componentRegistry != null) {
             this.componentRegistry.removeComponent(Image.COMPONENT_ID);
-            this.componentRegistry.removeComponent(TagCounter.COMPONENT_ID);
-            this.componentRegistry.removeComponent(Messenger.COMPONENT_ID);
+
         } else {
-            log.warn("Component registry was null, could not unregister Rad Components.");
+            log.warn("Component registry was null, could not unregister Carlsbad Components.");
         }
         if (this.modelDelegateRegistry != null ) {
-            this.modelDelegateRegistry.remove(Messenger.COMPONENT_ID);
+
         }
 
     }
@@ -83,13 +77,13 @@ public class RadGatewayHook extends AbstractGatewayModuleHook {
     @Override
     public void mountRouteHandlers(RouteGroup routeGroup) {
         // where you may choose to implement web server endpoints accessible via `host:port/system/data/
-        DataEndpoints.mountRoutes(routeGroup);
+
     }
 
-    // Lets us use the route http://<gateway>/res/radcomponents/*
+    // Lets us use the route http://<gateway>/res/carlsbadcomponents/*
     @Override
     public Optional<String> getMountPathAlias() {
-        return Optional.of(RadComponents.URL_ALIAS);
+        return Optional.of(CarlsbadComponents.URL_ALIAS);
     }
 
     @Override
