@@ -12,6 +12,7 @@ import com.inductiveautomation.perspective.gateway.api.ComponentModelDelegateReg
 import com.inductiveautomation.perspective.gateway.api.PerspectiveContext;
 import gov.carlsbadca.common.CarlsbadComponents;
 import gov.carlsbadca.common.component.display.Image;
+import gov.carlsbadca.common.component.display.Pump;
 
 public class CarlsbadGatewayHook extends AbstractGatewayModuleHook {
 
@@ -40,6 +41,7 @@ public class CarlsbadGatewayHook extends AbstractGatewayModuleHook {
         if (this.componentRegistry != null) {
             log.info("Registering Carlsbad components.");
             this.componentRegistry.registerComponent(Image.DESCRIPTOR);
+            this.componentRegistry.registerComponent(Pump.DESCRIPTOR);
 
         } else {
             log.error("Reference to component registry not found, Carlsbad Components will fail to function!");
@@ -59,6 +61,7 @@ public class CarlsbadGatewayHook extends AbstractGatewayModuleHook {
         log.info("Shutting down CarlsbadComponent module and removing registered components.");
         if (this.componentRegistry != null) {
             this.componentRegistry.removeComponent(Image.COMPONENT_ID);
+            this.componentRegistry.registerComponent(Pump.DESCRIPTOR);
 
         } else {
             log.warn("Component registry was null, could not unregister Carlsbad Components.");

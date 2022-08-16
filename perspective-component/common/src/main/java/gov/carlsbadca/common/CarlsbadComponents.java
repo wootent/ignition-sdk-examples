@@ -8,7 +8,7 @@ public class CarlsbadComponents {
 
     public static final String MODULE_ID = "gov.carlsbadca.carlsbadcomponents";
     public static final String URL_ALIAS = "carlsbadcomponents";
-    public static final String COMPONENT_CATEGORY = "Carlsbad Things";
+    public static final String COMPONENT_CATEGORY = "Carlsbad Components";
     public static final Set<BrowserResource> BROWSER_RESOURCES =
         Set.of(
             new BrowserResource(

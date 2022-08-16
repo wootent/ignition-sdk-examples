@@ -8,6 +8,7 @@ import com.inductiveautomation.ignition.designer.model.DesignerContext;
 import com.inductiveautomation.perspective.designer.DesignerComponentRegistry;
 import com.inductiveautomation.perspective.designer.api.PerspectiveDesignerInterface;
 import gov.carlsbadca.common.component.display.Image;
+import gov.carlsbadca.common.component.display.Pump;
 
 
 
@@ -53,6 +54,7 @@ public class CarlsbadDesignerHook extends AbstractDesignerModuleHook {
 
         // register components to get them on the palette
         registry.registerComponent(Image.DESCRIPTOR);
+        registry.registerComponent(Pump.DESCRIPTOR);
 
     }
 

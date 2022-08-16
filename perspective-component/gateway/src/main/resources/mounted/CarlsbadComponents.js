@@ -120,10 +120,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const perspective_client_1 = __webpack_require__(/*! @inductiveautomation/perspective-client */ "@inductiveautomation/perspective-client");
 const Image_1 = __webpack_require__(/*! ./components/Image */ "./typescript/components/Image.tsx");
 exports.Image = Image_1.Image;
+const Pump_1 = __webpack_require__(/*! ./components/Pump */ "./typescript/components/Pump.tsx");
+exports.Pump = Pump_1.Pump;
 __webpack_require__(/*! ../scss/main */ "./scss/main.scss");
 // as new components are implemented, import them, and add their meta to this array
 const components = [
-    new Image_1.ImageMeta()
+    new Image_1.ImageMeta(),
+    new Pump_1.PumpMeta()
 ];
 // iterate through our components, registering each one with the registry.  Don't forget to register on the Java side too!
 components.forEach((c) => perspective_client_1.ComponentRegistry.register(c));
@@ -186,6 +189,65 @@ class ImageMeta {
     }
 }
 exports.ImageMeta = ImageMeta;
+
+
+/***/ }),
+
+/***/ "./typescript/components/Pump.tsx":
+/*!****************************************!*\
+  !*** ./typescript/components/Pump.tsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Example of a component which displays an image, given a URL.
+ */
+const React = __webpack_require__(/*! react */ "react");
+const perspective_client_1 = __webpack_require__(/*! @inductiveautomation/perspective-client */ "@inductiveautomation/perspective-client");
+// The 'key' or 'id' for this component type.  Component must be registered with this EXACT key in the Java side as well
+// as on the client side.  In the client, this is done in the index file where we import and register through the
+// ComponentRegistry provided by the perspective-client API.
+exports.COMPONENT_TYPE = "carlsbad.display.pump";
+class Pump extends perspective_client_1.Component {
+    render() {
+        // The props we're interested in.
+        const { props: { url }, emit } = this.props;
+        // Read the 'url' property provided by the perspective gateway via the component 'props'.
+        // Note that the topmost piece of dom requires the application of an element reference, events, style and
+        // className as shown below otherwise the layout won't work, or any events configured will fail. See render
+        // of MessengerComponent in Messenger.tsx for more details.
+        return (React.createElement("img", Object.assign({}, emit(), { src: url, alt: `image-src-${url}` })));
+    }
+}
+exports.Pump = Pump;
+// This is the actual thing that gets registered with the component registry.
+class PumpMeta {
+    getComponentType() {
+        return exports.COMPONENT_TYPE;
+    }
+    // the class or React Type that this component provides
+    getViewComponent() {
+        return Pump;
+    }
+    getDefaultSize() {
+        return ({
+            width: 360,
+            height: 360
+        });
+    }
+    // Invoked when an update to the PropertyTree has occurred,
+    // effectively mapping the state of the tree to component props.
+    getPropsReducer(tree) {
+        return {
+            url: tree.readString("url", "")
+        };
+    }
+}
+exports.PumpMeta = PumpMeta;
 
 
 /***/ }),
