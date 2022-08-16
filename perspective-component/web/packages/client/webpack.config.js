@@ -12,7 +12,7 @@ const webpack = require('webpack'),
     MiniCssExtractPlugin = require("mini-css-extract-plugin"),
     WebpackOnBuildPlugin = require('on-build-webpack');
 
-const LibName = "RadComponents";
+const LibName = "CarlsbadComponents";
 
 // function that copies the result of the webpack from the dist/ folder into the gateway resources folder.  Used
 // in a post-build step so that our web assets are packed into our jar when the module is built.
