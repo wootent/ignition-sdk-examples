@@ -58,7 +58,6 @@ public class CarlsbadDesignerHook extends AbstractDesignerModuleHook {
 
     }
 
-
     /* (non-Javadoc)
      * @see com.inductiveautomation.ignition.designer.model.AbstractDesignerModuleHook#shutdown()
      */

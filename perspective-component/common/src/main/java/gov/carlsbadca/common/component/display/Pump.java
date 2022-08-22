@@ -30,7 +30,7 @@ public class Pump  {
         .setPaletteCategory(CarlsbadComponents.COMPONENT_CATEGORY)
         .setId(COMPONENT_ID)
         .setModuleId(CarlsbadComponents.MODULE_ID)
-        .setSchema(SCHEMA) //  this could alternatively be created purely in Java if desired
+        .setSchema(SCHEMA)
         .setName("Carlsbad Pump")
         .addPaletteEntry("", "Carlsbad Pump", "A simple Pump component.", null, null)
         .setDefaultMetaName("carlsbadPump")

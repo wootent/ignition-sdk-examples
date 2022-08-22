@@ -214,13 +214,18 @@ const perspective_client_1 = __webpack_require__(/*! @inductiveautomation/perspe
 exports.COMPONENT_TYPE = "carlsbad.display.pump";
 class Pump extends perspective_client_1.Component {
     render() {
-        // The props we're interested in.
-        const { props: { url }, emit } = this.props;
-        // Read the 'url' property provided by the perspective gateway via the component 'props'.
-        // Note that the topmost piece of dom requires the application of an element reference, events, style and
-        // className as shown below otherwise the layout won't work, or any events configured will fail. See render
-        // of MessengerComponent in Messenger.tsx for more details.
-        return (React.createElement("img", Object.assign({}, emit(), { src: url, alt: `image-src-${url}` })));
+        // destructure props for readablity
+        const { props: { name, id, mode, status } } = this.props;
+        return (React.createElement("div", null,
+            React.createElement("div", null,
+                React.createElement("h1", null, name)),
+            React.createElement("svg", null,
+                React.createElement("path", { d: "m 126.24325,149.22974 -23.63284,0.14442 -23.632829,0.14442 11.691342,-20.53884 11.691347,-20.53885 11.94149,20.39442 z", transform: "matrix(0.8503915,0,0,0.57506715,-52.330568,-30.131824)", className: "pump-centrifugal" }),
+                React.createElement("path", { d: "m 35.209458,14.594802 a 18.790539,16.966217 0 0 0 -18.790588,16.96589 18.790539,16.966217 0 0 0 18.790588,16.9664 18.790539,16.966217 0 0 0 18.79058,-16.9664 18.790539,16.966217 0 0 0 -0.18603,-2.37143 h 4.56457 v -13.86479 h -17.71984 a 18.790539,16.966217 0 0 0 -5.44928,-0.72967 z", className: "pump-centrifugal" })),
+            React.createElement("div", null,
+                React.createElement("h1", null, id)),
+            React.createElement("h2", null, mode),
+            React.createElement("h2", null, status)));
     }
 }
 exports.Pump = Pump;
@@ -239,11 +244,13 @@ class PumpMeta {
             height: 360
         });
     }
-    // Invoked when an update to the PropertyTree has occurred,
     // effectively mapping the state of the tree to component props.
     getPropsReducer(tree) {
         return {
-            url: tree.readString("url", "")
+            name: tree.readString("name", ""),
+            id: tree.readString("id", ""),
+            mode: tree.readString("mode", ""),
+            status: tree.readString("status", "")
         };
     }
 }

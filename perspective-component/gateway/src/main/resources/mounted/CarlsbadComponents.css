@@ -12,6 +12,20 @@
   .tag-counter-component > .tag-counter-interval {
     text-align: center; }
 
+.pump-component {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; }
+  .pump-component > * {
+    flex: 1 100%; }
+  .pump-component .pump-centrifugal {
+    fill: #d9d9d9;
+    fill-opacity: 1;
+    stroke: #bfbfbf;
+    stroke-dasharray: none;
+    stroke-opacity: 1;
+    stroke-width: 1.032; }
+
 .messenger-component {
   display: flex;
   flex-flow: row wrap;
