@@ -30,25 +30,22 @@ export class Pump extends Component<ComponentProps<PumpProps>, any> {
     render() {
 
         // destructure props for readablity
-        const { props: { name, id, mode, status } } = this.props;
+        const { props: { name, mode, status } } = this.props;
 
         return (
             <div className='pump-component'>
-                <div>
-                    <h1>{name}</h1>
+                <div align-content='center'>
+                    <label className='pump-label'>{name}</label>
                 </div>
-                <svg align-content='center'>
-                    <path d="m 126.24325,149.22974 -23.63284,0.14442 -23.632829,0.14442 11.691342,-20.53884 11.691347,-20.53885 11.94149,20.39442 z" transform="matrix(0.8503915,0,0,0.57506715,-52.330568,-30.131824)" className={status} />
-                    <path d="m 35.209458,14.594802 a 18.790539,16.966217 0 0 0 -18.790588,16.96589 18.790539,16.966217 0 0 0 18.790588,16.9664 18.790539,16.966217 0 0 0 18.79058,-16.9664 18.790539,16.966217 0 0 0 -0.18603,-2.37143 h 4.56457 v -13.86479 h -17.71984 a 18.790539,16.966217 0 0 0 -5.44928,-0.72967 z" className={status} />
+                <svg width='100' height='100' viewBox='0 0 100 100'>
+                    <path d="M 25.193551,52.516126 37.410469,31.26914 49.627384,10.02215 61.919355,31.225805 74.21133,52.429459 49.702441,52.472791 Z" transform="matrix(1.4486251,0,0,1.1097662,-24.604497,33.135839)" className={status} />
+                    <path d="M 47.548574,8.1610437 A 37.258064,35.129032 0 0 0 10.290383,43.290165 37.258064,35.129032 0 0 0 47.548574,78.419287 37.258064,35.129032 0 0 0 84.806248,43.290165 37.258064,35.129032 0 0 0 82.105121,30.161251 h 8.378816 V 8.8710779 H 54.997215 A 37.258064,35.129032 0 0 0 47.548574,8.1610437 Z" className={status} />
                 </svg>
-                <div>
-                    <label>{id}</label>
+                <div align-content='center'>
+                    <label className='pump-label'>{mode}</label>
                 </div>
-                <div>
-                    <label>{mode}</label>
-                </div>
-                <div>
-                    <label>{status}</label>
+                <div align-content='center'>
+                    <label className='pump-label'>{status}</label>
                 </div>
             </div>
         );

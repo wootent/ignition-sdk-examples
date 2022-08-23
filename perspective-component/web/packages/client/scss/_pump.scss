@@ -2,12 +2,21 @@
   align-content: center;
   display: flex;
   flex-direction: column;
-  font-size: .5rem;
   max-width: 100px;
   text-align: center;
 }
 
-.stopped { 
+.pump-label {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1 rem;
+  max-width: 100px;
+  text-align: center;
+}
+
+.stopped {
+  align-content: center; 
   fill:#d9d9d9;
   fill-opacity:1;
   stroke:#bfbfbf;
@@ -16,7 +25,8 @@
   stroke-width:1.032;
 }
 
-.running { 
+.running {
+  align-content: center; 
   fill:green;
   fill-opacity:1;
   stroke:#bfbfbf;
@@ -25,20 +35,18 @@
   stroke-width:1.032;
 }
 
-.failed { 
+.failed {
+  align-content: center; 
   fill:red;
   fill-opacity:1;
   stroke:#bfbfbf;
   stroke-dasharray:none;
   stroke-opacity:1;
   stroke-width:1.032;
-  animation: blinkingBackground 2s infinite;
+  animation: blinkingBackground 1s infinite;
 }
 
 @keyframes blinkingBackground{
   0%		{ fill: red}
-  25%		{ fill: #bfbfbf;}
-  50%		{ fill: yellow;}
-  75%		{ fill: #bfbfbf;}
-  100%	{ fill: red;}
+  100%	{ fill: #bfbfbf;}
 }
