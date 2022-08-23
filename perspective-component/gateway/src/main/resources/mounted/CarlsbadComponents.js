@@ -216,16 +216,18 @@ class Pump extends perspective_client_1.Component {
     render() {
         // destructure props for readablity
         const { props: { name, id, mode, status } } = this.props;
-        return (React.createElement("div", null,
+        return (React.createElement("div", { className: 'pump-component' },
             React.createElement("div", null,
                 React.createElement("h1", null, name)),
-            React.createElement("svg", null,
-                React.createElement("path", { d: "m 126.24325,149.22974 -23.63284,0.14442 -23.632829,0.14442 11.691342,-20.53884 11.691347,-20.53885 11.94149,20.39442 z", transform: "matrix(0.8503915,0,0,0.57506715,-52.330568,-30.131824)", className: "pump-centrifugal" }),
-                React.createElement("path", { d: "m 35.209458,14.594802 a 18.790539,16.966217 0 0 0 -18.790588,16.96589 18.790539,16.966217 0 0 0 18.790588,16.9664 18.790539,16.966217 0 0 0 18.79058,-16.9664 18.790539,16.966217 0 0 0 -0.18603,-2.37143 h 4.56457 v -13.86479 h -17.71984 a 18.790539,16.966217 0 0 0 -5.44928,-0.72967 z", className: "pump-centrifugal" })),
+            React.createElement("svg", { "align-content": 'center' },
+                React.createElement("path", { d: "m 126.24325,149.22974 -23.63284,0.14442 -23.632829,0.14442 11.691342,-20.53884 11.691347,-20.53885 11.94149,20.39442 z", transform: "matrix(0.8503915,0,0,0.57506715,-52.330568,-30.131824)", className: status }),
+                React.createElement("path", { d: "m 35.209458,14.594802 a 18.790539,16.966217 0 0 0 -18.790588,16.96589 18.790539,16.966217 0 0 0 18.790588,16.9664 18.790539,16.966217 0 0 0 18.79058,-16.9664 18.790539,16.966217 0 0 0 -0.18603,-2.37143 h 4.56457 v -13.86479 h -17.71984 a 18.790539,16.966217 0 0 0 -5.44928,-0.72967 z", className: status })),
             React.createElement("div", null,
-                React.createElement("h1", null, id)),
-            React.createElement("h2", null, mode),
-            React.createElement("h2", null, status)));
+                React.createElement("label", null, id)),
+            React.createElement("div", null,
+                React.createElement("label", null, mode)),
+            React.createElement("div", null,
+                React.createElement("label", null, status))));
     }
 }
 exports.Pump = Pump;
@@ -240,8 +242,8 @@ class PumpMeta {
     }
     getDefaultSize() {
         return ({
-            width: 360,
-            height: 360
+            width: 150,
+            height: 150
         });
     }
     // effectively mapping the state of the tree to component props.

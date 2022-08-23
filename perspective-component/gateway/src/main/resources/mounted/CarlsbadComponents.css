@@ -1,49 +1,47 @@
-.tag-counter-component {
-  display: flex;
-  flex-direction: column; }
-  .tag-counter-component > .tag-counter-count {
-    color: blue;
-    font-size: 2rem;
-    align-content: center;
-    text-align: center; }
-  .tag-counter-component > .message-animation {
-    transition: color 0.5s ease;
-    color: lightslategray; }
-  .tag-counter-component > .tag-counter-interval {
-    text-align: center; }
-
 .pump-component {
+  align-content: center;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around; }
-  .pump-component > * {
-    flex: 1 100%; }
-  .pump-component .pump-centrifugal {
-    fill: #d9d9d9;
-    fill-opacity: 1;
-    stroke: #bfbfbf;
-    stroke-dasharray: none;
-    stroke-opacity: 1;
-    stroke-width: 1.032; }
+  flex-direction: column;
+  font-size: .5rem;
+  max-width: 100px;
+  text-align: center; }
 
-.messenger-component {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around; }
-  .messenger-component .counter {
-    text-align: center; }
-  .messenger-component .message {
-    text-align: center;
-    color: slategray;
-    width: 100%; }
-  .messenger-component > * {
-    flex: 1 100%; }
-  .messenger-component .messenger-button {
-    width: 100%;
-    background-color: blue;
-    color: aliceblue;
-    height: 2rem;
-    margin: auto; }
+.stopped {
+  fill: #d9d9d9;
+  fill-opacity: 1;
+  stroke: #bfbfbf;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
+  stroke-width: 1.032; }
+
+.running {
+  fill: green;
+  fill-opacity: 1;
+  stroke: #bfbfbf;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
+  stroke-width: 1.032; }
+
+.failed {
+  fill: red;
+  fill-opacity: 1;
+  stroke: #bfbfbf;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
+  stroke-width: 1.032;
+  animation: blinkingBackground 2s infinite; }
+
+@keyframes blinkingBackground {
+  0% {
+    fill: red; }
+  25% {
+    fill: #bfbfbf; }
+  50% {
+    fill: yellow; }
+  75% {
+    fill: #bfbfbf; }
+  100% {
+    fill: red; } }
 
 
 /*# sourceMappingURL=CarlsbadComponents.css.map*/
