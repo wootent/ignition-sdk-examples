@@ -15,7 +15,7 @@
   text-align: center;
 }
 
-.stopped {
+.Stopped {
   align-content: center; 
   fill:#d9d9d9;
   fill-opacity:1;
@@ -25,7 +25,7 @@
   stroke-width:1.032;
 }
 
-.running {
+.Running {
   align-content: center; 
   fill:green;
   fill-opacity:1;
@@ -35,7 +35,7 @@
   stroke-width:1.032;
 }
 
-.failed {
+.Failed {
   align-content: center; 
   fill:red;
   fill-opacity:1;
@@ -44,6 +44,16 @@
   stroke-opacity:1;
   stroke-width:1.032;
   animation: blinkingBackground 1s infinite;
+}
+
+.OOS {
+  align-content: center; 
+  fill:#d9d9d9;
+  fill-opacity:.5;
+  stroke:#bfbfbf;
+  stroke-dasharray:none;
+  stroke-opacity:.5;
+  stroke-width:1.032;
 }
 
 @keyframes blinkingBackground{

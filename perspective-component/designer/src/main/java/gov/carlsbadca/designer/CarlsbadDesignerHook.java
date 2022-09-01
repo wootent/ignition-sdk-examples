@@ -71,6 +71,7 @@ public class CarlsbadDesignerHook extends AbstractDesignerModuleHook {
      */
     private void removeComponents() {
         registry.removeComponent(Image.COMPONENT_ID);
+        registry.removeComponent(Pump.COMPONENT_ID);
 
     }
 }
