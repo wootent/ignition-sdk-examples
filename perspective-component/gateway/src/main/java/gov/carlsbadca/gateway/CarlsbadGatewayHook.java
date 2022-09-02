@@ -26,12 +26,12 @@ public class CarlsbadGatewayHook extends AbstractGatewayModuleHook {
     @Override
     public void setup(GatewayContext context) {
         this.gatewayContext = context;
-        log.info("Setting up CarlsbadComponents module.");
+        log.info("Setting up Carlsbad Components module.");
     }
 
     @Override
     public void startup(LicenseState activationState) {
-        log.info("Starting up CarlsbadGatewayHook!");
+        log.info("Starting up Carlsbad Gateway Hook!");
 
         this.perspectiveContext = PerspectiveContext.get(this.gatewayContext);
         this.componentRegistry = this.perspectiveContext.getComponentRegistry();
@@ -39,7 +39,7 @@ public class CarlsbadGatewayHook extends AbstractGatewayModuleHook {
 
 
         if (this.componentRegistry != null) {
-            log.info("Registering Carlsbad components.");
+            log.info("Registering Carlsbad Components.");
             this.componentRegistry.registerComponent(Image.DESCRIPTOR);
             this.componentRegistry.registerComponent(Pump.DESCRIPTOR);
 
@@ -61,7 +61,7 @@ public class CarlsbadGatewayHook extends AbstractGatewayModuleHook {
         log.info("Shutting down CarlsbadComponent module and removing registered components.");
         if (this.componentRegistry != null) {
             this.componentRegistry.removeComponent(Image.COMPONENT_ID);
-            this.componentRegistry.registerComponent(Pump.DESCRIPTOR);
+            this.componentRegistry.removeComponent(Pump.COMPONENT_ID);
 
         } else {
             log.warn("Component registry was null, could not unregister Carlsbad Components.");

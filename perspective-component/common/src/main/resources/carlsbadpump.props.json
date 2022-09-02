@@ -2,19 +2,53 @@
     "type": "object",
     "additionalProperties": false,
     "required": [
-        "name"
+ 
     ],
+
     "properties": {
-        "name": {
+        "props": {
+            "type": "Boolean",
+            "description": "set to true to show control",
+            "default": false
+        },
+        "propsControl": {
+            "type": "Boolean",
+            "description": "set to true to show control",
+            "default": false
+        },
+        "propsId": {
+            "type": "Boolean",
+            "description": "set to true to id",
+            "default": false
+        }, 
+        "propsName": {
+            "type": "Boolean",
+            "description": "set to true to show name",
+            "default": false
+        },
+        "control": {
             "type": "string",
-            "description": "",
-            "default": "Pump"
+            "enum": [
+                "Local",
+                "Off",
+                "Remote"
+            ],
+            "description": "control mode",
+            "default": "Off",
+            "visibleWhen": {
+                "property": "propsControl",
+                "equals": true
+            }
         },
         "id": {
             "type": "string",
             "description": "",
-            "default": "pmp"
-        },    
+            "default": "PMP-0000",
+            "visibleWhen": {
+                "property": "propsId",
+                "equals": true
+            }
+        },
         "mode": {
             "type": "string",
             "enum": [
@@ -22,8 +56,21 @@
                 "Off",
                 "Auto"
             ],
+            "description": "control mode",
+            "default": "Off",
+            "visibleWhen": {
+                "property": "propsControl",
+                "equals": true
+            }
+        },
+        "name": {
+            "type": "string",
             "description": "",
-            "default": "Off"
+            "default": "Pump",
+            "visibleWhen": {
+                "property": "propsName",
+                "equals": true
+            }
         },
         "status": {
             "type": "string",
