@@ -6,18 +6,32 @@
     ],
 
     "properties": {
-        "props1": {
+        "label": {
             "type": "object",
             "additionalProperties": false,
             "required": [
 
             ],
-
             "properties": {
-                "props": {
+                "show": {
                     "type": "Boolean",
-                    "description": "set to true to show control",
+                    "description": "show label",
                     "default": false
+                },
+                "text": {
+                    "type": "string",
+                    "description": "label text",
+                    "default": "Pump",
+                    "visibleWhen": {
+                        "property": "show",
+                        "equals": true
+                    }
+                },
+                "style": {
+                    "$ref": "urn:ignition-schema:schemas/style-properties.schema.json",
+                    "default": {
+                        "classes": ""
+                    }
                 }
             }
         },
@@ -70,15 +84,6 @@
             "default": "Off",
             "visibleWhen": {
                 "property": "propsControl",
-                "equals": true
-            }
-        },
-        "name": {
-            "type": "string",
-            "description": "",
-            "default": "Pump",
-            "visibleWhen": {
-                "property": "propsName",
                 "equals": true
             }
         },

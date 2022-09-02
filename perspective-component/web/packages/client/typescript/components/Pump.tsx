@@ -19,11 +19,9 @@ export const COMPONENT_TYPE = "carlsbad.display.pump";
 export interface PumpProps {
     propsControl: boolean;
     propsId: boolean;
-    propsName: boolean;
     control: string;
     id: string;
     mode: string;
-    name: string;
     status: string;
 }
 
@@ -31,15 +29,13 @@ export class Pump extends Component<ComponentProps<PumpProps>, any> {
     render() {
 
         // destructure props for readablity
-        const { props: { propsControl, propsId, propsName, control, id, mode, name, status }, emit } = this.props;
+        const { props: { propsControl, propsId, control, id, mode, status }, emit } = this.props;
 
         return (
             // Pump component
             <div className='pump-component' {...emit()}>
                 {/* Id label, show only if propsId is set to true */}
                 {propsId ? <label className='pump-label'>{id}</label> : null}
-                {/* Name label, show only if propsName is set to true */}
-                {propsName ? <label className='pump-label'>{name}</label> : null}
                 {/* Pump icon */}
                 <svg viewBox='0 0 100 100'>
                     <path d="M 25.193551,52.516126 37.410469,31.26914 49.627384,10.02215 61.919355,31.225805 74.21133,52.429459 49.702441,52.472791 Z" transform="matrix(1.4486251,0,0,1.1097662,-24.604497,33.135839)" className={status} />
@@ -80,11 +76,9 @@ export class PumpMeta implements ComponentMeta {
         return {
             propsControl: tree.readBoolean("propsControl"),
             propsId: tree.readBoolean("propsId"),
-            propsName: tree.readBoolean("propsName"),
             control: tree.readString("control", ""),
             id: tree.readString("id", ""),
             mode: tree.readString("mode", ""),
-            name: tree.readString("name", ""),
             status: tree.readString("status", "")
         };
     }
