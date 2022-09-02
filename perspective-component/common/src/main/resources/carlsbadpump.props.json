@@ -6,10 +6,20 @@
     ],
 
     "properties": {
-        "props": {
-            "type": "Boolean",
-            "description": "set to true to show control",
-            "default": false
+        "props1": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+
+            ],
+
+            "properties": {
+                "props": {
+                    "type": "Boolean",
+                    "description": "set to true to show control",
+                    "default": false
+                }
+            }
         },
         "propsControl": {
             "type": "Boolean",
