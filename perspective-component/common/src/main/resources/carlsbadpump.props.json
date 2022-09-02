@@ -21,11 +21,18 @@
                 "text": {
                     "type": "string",
                     "description": "label text",
-                    "default": "Pump",
-                    "visibleWhen": {
-                        "property": "show",
-                        "equals": true
-                    }
+                    "default": "Pump"
+                },
+                "location": {
+                    "type": "string",
+                    "enum": [
+                        "top",
+                        "bottom",
+                        "left",
+                        "right"
+                    ],
+                    "description": "label location",
+                    "default": "top"
                 },
                 "style": {
                     "$ref": "urn:ignition-schema:schemas/style-properties.schema.json",

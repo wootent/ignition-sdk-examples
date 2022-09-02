@@ -13,7 +13,7 @@ import gov.carlsbadca.common.CarlsbadComponents;
 public class Pump  {
 
     // unique ID of the component which perfectly matches that provided in the javascript's ComponentMeta implementation
-    public static String COMPONENT_ID = "carlsbad.display.pump";
+    public static String COMPONENT_ID = "carlsbad.symbol.pump";
 
     /**
      * The schema provided with the component descriptor. Use a schema instead of a plain JsonObject because it gives

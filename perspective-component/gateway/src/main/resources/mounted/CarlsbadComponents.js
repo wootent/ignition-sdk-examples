@@ -208,21 +208,25 @@ const perspective_client_1 = __webpack_require__(/*! @inductiveautomation/perspe
 // The 'key' or 'id' for this component type.  Component must be registered with this EXACT key in the Java side as well
 // as on the client side.  In the client, this is done in the index file where we import and register through the
 // ComponentRegistry provided by the perspective-client API.
-exports.COMPONENT_TYPE = "carlsbad.display.pump";
+exports.COMPONENT_TYPE = "carlsbad.symbol.pump";
 class Pump extends perspective_client_1.Component {
     render() {
         // destructure props for readablity
-        const { props: { propsControl, propsId, control, id, mode, status }, emit } = this.props;
+        const { props: { propsControl, propsId, control, label, id, mode, status }, emit } = this.props;
         return (
         // Pump component
-        React.createElement("div", Object.assign({ className: 'pump-component' }, emit()),
-            propsId ? React.createElement("label", { className: 'pump-label' }, id) : null,
-            React.createElement("svg", { viewBox: '0 0 100 100' },
-                React.createElement("path", { d: "M 25.193551,52.516126 37.410469,31.26914 49.627384,10.02215 61.919355,31.225805 74.21133,52.429459 49.702441,52.472791 Z", transform: "matrix(1.4486251,0,0,1.1097662,-24.604497,33.135839)", className: status }),
-                React.createElement("path", { d: "M 47.548574,8.1610437 A 37.258064,35.129032 0 0 0 10.290383,43.290165 37.258064,35.129032 0 0 0 47.548574,78.419287 37.258064,35.129032 0 0 0 84.806248,43.290165 37.258064,35.129032 0 0 0 82.105121,30.161251 h 8.378816 V 8.8710779 H 54.997215 A 37.258064,35.129032 0 0 0 47.548574,8.1610437 Z", className: status })),
-            propsControl ? React.createElement("label", { className: 'pump-label' }, control) : null,
-            control === "Remote" ? React.createElement("label", { className: 'pump-label' }, mode) : null,
-            React.createElement("label", { className: 'pump-label' }, status)));
+        React.createElement("div", Object.assign({}, emit()),
+            React.createElement("div", { className: "pump-component" },
+                React.createElement("div", null, propsId ? React.createElement("label", null, id) : null),
+                React.createElement("div", null, label.show ? React.createElement("label", null, label.text) : null),
+                React.createElement("div", { className: "pump-icon" },
+                    React.createElement("svg", { viewBox: '0 0 100 100' },
+                        React.createElement("path", { d: "M 25.193551,52.516126 37.410469,31.26914 49.627384,10.02215 61.919355,31.225805 74.21133,52.429459 49.702441,52.472791 Z", transform: "matrix(1.4486251,0,0,1.1097662,-24.604497,33.135839)", className: status }),
+                        React.createElement("path", { d: "M 47.548574,8.1610437 A 37.258064,35.129032 0 0 0 10.290383,43.290165 37.258064,35.129032 0 0 0 47.548574,78.419287 37.258064,35.129032 0 0 0 84.806248,43.290165 37.258064,35.129032 0 0 0 82.105121,30.161251 h 8.378816 V 8.8710779 H 54.997215 A 37.258064,35.129032 0 0 0 47.548574,8.1610437 Z", className: status }))),
+                React.createElement("div", null, propsControl ? React.createElement("label", null, control) : null),
+                React.createElement("div", null, control === "Remote" ? React.createElement("label", null, mode) : null),
+                React.createElement("div", null,
+                    React.createElement("label", null, status)))));
     }
 }
 exports.Pump = Pump;
@@ -247,6 +251,7 @@ class PumpMeta {
             propsControl: tree.readBoolean("propsControl"),
             propsId: tree.readBoolean("propsId"),
             control: tree.readString("control", ""),
+            label: tree.readObject("label"),
             id: tree.readString("id", ""),
             mode: tree.readString("mode", ""),
             status: tree.readString("status", "")
